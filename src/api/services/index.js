@@ -6,7 +6,7 @@ const { contentEndpoint } = require('../../config')
 const api = adapter(contentEndpoint)
 
 router.get('/enservices', (req, res) => {
-  api.get('/enservices', req.body).then(resp => {
+  api.get('/enservices').then(resp => {
     res.send(resp.data)
   }).catch((error) => {
     res.send({
@@ -17,7 +17,7 @@ router.get('/enservices', (req, res) => {
 })
 
 router.get('/esservices', (req, res) => {
-  api.get('/esservices', req.body).then(resp => {
+  api.get('/esservices').then(resp => {
     res.send(resp.data)
   }).catch((error) => {
     res.send({

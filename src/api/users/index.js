@@ -17,7 +17,8 @@ router.post('/users/login', (req, res) => {
 })
 
 router.post('/users/logout', (req, res) => {
-  api.post('/users/logout', req.body).then(resp => {
+  const { user, token } = req.headers
+  api.post('/users/logout', req.body, { headers: { user, token } }).then(resp => {
     res.send(resp.data)
   }).catch((error) => {
     res.send({
